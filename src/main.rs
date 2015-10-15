@@ -169,10 +169,10 @@ fn main() {
         }
     };
 
-    // mode, full contract, nonce, p2sh-address contract, ascii contract
-    let contract = match (mode, matches.opt_str("f"), matches.opt_str("n"), matches.opt_str("d"), matches.opt_str("a")) {
+    // full contract, nonce, p2sh-address contract, ascii contract
+    let contract = match (matches.opt_str("f"), matches.opt_str("n"), matches.opt_str("d"), matches.opt_str("a")) {
         // Full contract obviates everything else
-        (_, Some(hex), None, None, None) => {
+        (Some(hex), None, None, None) => {
             match Contract::from_hex(&hex) {
                 Ok(data) => data,
                 Err(e) => {
@@ -182,7 +182,7 @@ fn main() {
             }
         }
         // P2SH requires a nonce, but in generate mode we may make one
-        (mode, None, nonce, Some(hex), None) => {
+        (None, nonce, Some(hex), None) => {
             if mode == Mode::GenPrivkey && nonce.is_none() {
                 println!("-n is required when using -c and -d");
                 println!("{}", full_usage);
@@ -210,7 +210,7 @@ fn main() {
             }
         }
         // ASCII requires a nonce, but in generate mode we may make one
-        (mode, None, nonce, None, Some(ascii)) => {
+        (None, nonce, None, Some(ascii)) => {
             if mode == Mode::GenPrivkey && nonce.is_none() {
                 println!("-n is required when using -c and -a");
                 println!("{}", full_usage);
