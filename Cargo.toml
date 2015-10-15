@@ -1,0 +1,24 @@
+
+[package]
+name = "pacthash"
+version = "0.1.0"
+authors = ["Andrew Poelstra <apoelstra@wpsoftware.net>"]
+homepage = "https://github.com/apoelstra/pacthash/"
+repository = "https://github.com/apoelstra/pacthash/"
+documentation = "https://www.wpsoftware.net/rustdoc/pacthash/"
+description = "Port of Matt Corallo's contracthashtool to Rust"
+keywords = [ "crypto", "bitcoin", "sidechains" ]
+readme = "README.md"
+
+
+[[bin]]
+name = "pacthash"
+path = "src/main.rs"
+
+[dependencies]
+bitcoin = "0.3"
+getopts = "0.2"
+rand = "0.3"
+rustc-serialize = "0.3"
+secp256k1 = "0.3"
+
