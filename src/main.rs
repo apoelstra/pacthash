@@ -273,6 +273,7 @@ fn main() {
                         Network::Testnet => println!("Using testnet!"),
                     }
                     println!("Nonce: {:x}", Nonce::from_contract(&contract));
+                    println!("Full serialized contract: {:x}", contract);
                     println!("Modified redeem script: {:x}", new_script);
                     println!("Modified redeem script as P2SH address: {}", Address::from_script(network, &new_script).to_base58check());
                 }

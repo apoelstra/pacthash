@@ -182,3 +182,13 @@ impl Contract {
     }
 }
 
+impl fmt::LowerHex for Contract {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        // TODO no need to allocate here, I'm just being lazy
+        for ch in &self.serialize()[..] {
+            try!(write!(f, "{:02x}", *ch));
+        }
+        Ok(())
+    }
+}
+
