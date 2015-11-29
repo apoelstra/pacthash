@@ -8,6 +8,7 @@ repository = "https://github.com/apoelstra/pacthash/"
 documentation = "https://www.wpsoftware.net/rustdoc/pacthash/"
 description = "Port of Matt Corallo's contracthashtool to Rust"
 keywords = [ "crypto", "bitcoin", "sidechains" ]
+license = "CC0-1.0"
 readme = "README.md"
 
 
